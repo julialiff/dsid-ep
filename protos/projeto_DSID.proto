@@ -1,0 +1,67 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.projeto-DSID";
+option java_outer_classname = "ProjetoDSIDProto";
+option objc_class_prefix = "DSID";
+
+package helloworld;
+
+// The greeting service definition.
+service Greeter {
+ //Chamada sem argumentos e sem valor de retorno
+  rpc ChamadaVoid (RequestVoid) returns (ReplyVoid) {}
+ //Chamada com argumento long e retorno long  
+  rpc ChamadaLong (RequestLong) returns (ReplyLong) {}
+ //Chamada com 8 argumentos long e retorno long
+  rpc Chamada8Long (Request8Long) returns (ReplyLong) {}	
+ //Chamada com argumento string e retorno string
+  rpc ChamadaString (RequestString) returns (ReplyString) {}	
+}
+
+message RequestVoid {
+}
+
+message ReplyVoid {
+}
+
+message RequestLong {
+	int64 num = 1;
+}
+
+message ReplyLong{
+	int64 message = 1;
+}
+
+message Request8Long{
+	int64 num1 = 8;
+	int64 num2 = 1;
+	int64 num3 = 2;
+	int64 num4 = 3;
+	int64 num5 = 4;
+	int64 num6 = 5;
+	int64 num7 = 6;
+	int64 num8 = 7;
+}
+
+message RequestString{
+	string name = 1;
+}
+
+message ReplyString{
+	string message = 1;
+}
